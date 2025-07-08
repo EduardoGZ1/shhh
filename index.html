@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shhhh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="intro" class="intro">
+    <div class="intro-message" id="introMessage"></div>
+    <button id="nextMsgBtn" class="next-msg-btn" aria-label="Próxima mensagem" style="background: linear-gradient(135deg, #a4508b 0%, #5f0a87 100%); border: none; border-radius: 50%; box-shadow: 0 2px 8px rgba(164,80,139,0.18); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s, transform 0.2s;">
+      <span class="arrow" style="display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="none"/>
+          <path d="M8 12H16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M13 9L16 12L13 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div class="decor decor-photos">
+    <img src="https://i.postimg.cc/0QNdjLqp/Imagem-do-Whats-App-de-2025-07-04-s-13-47-02-78647aa0.jpg" class="float-photo photo1" alt="Foto 1">
+    <div class="photo1-balloon">
+      Eu sou completamente apaixonado nessa foto dos seus olhos aqui
+      <span class="balloon-arrow"></span>
+    </div>
+    <img src="https://i.postimg.cc/FsxYNr0w/Imagem-do-Whats-App-de-2025-07-06-s-21-57-33-8c40f31d.jpg" class="float-photo photo3" alt="Foto 3">
+    <img src="https://i.postimg.cc/tTHbsPjk/Imagem-do-Whats-App-de-2025-06-24-s-22-49-20-1f27436c.jpg" class="float-photo photo4" alt="Foto 4">
+    <img src="https://i.postimg.cc/2SFM0JRQ/image.png" class="float-photo photo5" alt="Foto 5">
+    <img src="https://i.postimg.cc/7P2BBcS5/image.png" class="float-photo photo6" alt="Foto 6">
+  </div>
+  <div class="container" id="mainContainer" style="display:none;">
+    <h1 class="question">Beatriz, quer namorar comigo?</h1>
+    <div class="buttons">
+      <button id="yesBtn" class="btn yes">Sim 💖</button>
+      <button id="noBtn" class="btn no">Não 😭</button>
+    </div>
+  </div>
+  <div id="contadorTempo" style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.85); color: #6c3483; padding: 10px 18px; border-radius: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 1.1em; z-index: 1000; display: none;"></div>
+  <audio id="audioComemoracao" src="https://www.dropbox.com/scl/fi/tlw98fbg3vb3sivm56qra/fogos-caruaru-foguete-12x1-8.mp3?rlkey=s7h8b5a1pc9w9v6fxuxo0cesc&st=ed0dqr6q&raw=1"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
