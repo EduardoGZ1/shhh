@@ -51,7 +51,7 @@ yesBtn.addEventListener('click', () => {
     audio.play();
   }
   // Enviar notificação por e-mail via backend
-  fetch('https://shhh-08re.onrender.com:3001/api/send', {
+  fetch('https://shhh-08re.onrender.com/api/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
