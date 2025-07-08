@@ -18,6 +18,7 @@ noBtn.addEventListener('click', () => {
     setTimeout(() => {
       noBtn.style.display = 'none';
       yesBtn.style.transform = 'scale(1)';
+      mostrarModal(); // Mostra o modal após o botão sumir
     }, 500);
   }
 });
@@ -130,3 +131,41 @@ window.addEventListener('DOMContentLoaded', () => {
   mostrarMensagem();
   atualizarContador();
 });
+
+// Modal personalizado
+function mostrarModal() {
+  if (document.getElementById('modalNamoro')) return;
+  const modal = document.createElement('div');
+  modal.id = 'modalNamoro';
+  modal.style.position = 'fixed';
+  modal.style.top = '0';
+  modal.style.left = '0';
+  modal.style.width = '100vw';
+  modal.style.height = '100vh';
+  modal.style.background = 'rgba(0,0,0,0.5)';
+  modal.style.display = 'flex';
+  modal.style.alignItems = 'center';
+  modal.style.justifyContent = 'center';
+  modal.style.zIndex = '9999';
+  const box = document.createElement('div');
+  box.style.background = '#fff';
+  box.style.padding = '32px 28px';
+  box.style.borderRadius = '18px';
+  box.style.boxShadow = '0 4px 24px rgba(0,0,0,0.18)';
+  box.style.fontSize = '1.3em';
+  box.style.color = '#a4508b';
+  box.style.textAlign = 'center';
+  box.textContent = 'Vai namorar comigo sim, ngm disse q vc tem opção';
+  modal.appendChild(box);
+  document.body.appendChild(modal);
+  // Fechar ao clicar em qualquer lugar
+  modal.addEventListener('click', () => {
+    modal.remove();
+  });
+  // Fechar automaticamente após 2 segundos
+  setTimeout(() => {
+    if (document.body.contains(modal)) {
+      modal.remove();
+    }
+  }, 2000);
+}
