@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas class="webgl"></canvas>
   <div id="intro" class="intro">
     <div class="intro-message" id="introMessage"></div>
     <button id="nextMsgBtn" class="next-msg-btn" aria-label="Próxima mensagem" style="background: linear-gradient(135deg, #a4508b 0%, #5f0a87 100%); border: none; border-radius: 50%; box-shadow: 0 2px 8px rgba(164,80,139,0.18); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s, transform 0.2s;">
@@ -40,5 +41,6 @@
   <div id="contadorTempo" style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.85); color: #6c3483; padding: 10px 18px; border-radius: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 1.1em; z-index: 1000; display: none;"></div>
   <audio id="audioComemoracao" src="https://www.dropbox.com/scl/fi/tlw98fbg3vb3sivm56qra/fogos-caruaru-foguete-12x1-8.mp3?rlkey=s7h8b5a1pc9w9v6fxuxo0cesc&st=ed0dqr6q&raw=1"></audio>
   <script src="script.js"></script>
+  <script type="module" src="animacaoFundo.js"></script>
 </body>
 </html>

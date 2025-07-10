@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f7b6e6 0%, #a18cd1 100%);
+  background: #1a0d1a !important; /* Remove o background antigo para não conflitar com a animação */
   font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
@@ -13,17 +13,20 @@ body {
 }
 
 .container {
-  background: rgba(255,255,255,0.85);
+  background: rgba(252, 187, 245, 0.685);
   border-radius: 32px;
   box-shadow: 0 8px 32px rgba(161, 140, 209, 0.2);
   padding: 48px 32px 64px 32px;
   text-align: center;
   position: relative;
   min-width: 340px;
+  /* Blur effect for background */
+  backdrop-filter: blur(2px) saturate(140%);
+  -webkit-backdrop-filter: blur(2px) saturate(140%);
 }
 
 .question {
-  color: #a259c6;
+  color: #8e30bd;
   font-size: 2.2rem;
   margin-bottom: 40px;
   text-shadow: 0 2px 8px #f7b6e6;
@@ -261,7 +264,7 @@ body {
   opacity: 0.95;
   display: flex;
   align-items: center;
-  animation: floatPhoto 8s ease-in-out infinite alternate;
+  animation: fadeIn 1.8s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .balloon-arrow {
   position: absolute;
@@ -273,4 +276,109 @@ body {
   border-bottom: 14px solid transparent;
   border-right: 18px solid #fff;
   filter: drop-shadow(-2px 2px 2px #a18cd133);
+}
+
+/* Estilo do canvas da animação */
+.webgl {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  outline: none;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #1a0d1a 0%, #2b0f2b 100%);
+}
+
+/* --- MELHORIAS PARA A PÁGINA DEPOIS DO PEDIDO ACEITO --- */
+
+body.aceito {
+  background: linear-gradient(135deg, #f7b6e6 0%, #a18cd1 100%) fixed !important;
+  animation: bgMove 12s ease-in-out infinite alternate;
+}
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.aceito-main {
+  animation: fadeInUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  box-shadow: 0 12px 48px 0 #a18cd1aa, 0 2px 8px #fff5;
+  border-radius: 32px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  padding: 32px 24px 48px 24px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.aceito-titulo {
+  color: #a4508b;
+  font-size: 2.8em;
+  text-align: center;
+  margin: 48px 0 0.5em 0;
+  text-shadow: 0 4px 24px #ffb6e6cc, 0 2px 8px #fff5;
+  letter-spacing: 1px;
+  animation: fadeInDown 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.aceito-texto {
+  font-size: 1.22em;
+  color: #5f0a87;
+  text-align: left;
+  line-height: 1.7;
+  margin: 0;
+  text-shadow: 0 1px 6px #fff3;
+  animation: fadeIn 1.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.aceito-img {
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #a18cd155, 0 1.5px 6px #fff3;
+  animation: fadeIn 1.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.aceito-btn {
+  background: linear-gradient(135deg,#a4508b 0%,#5f0a87 100%);
+  color: #fff;
+  font-size: 1.15em;
+  padding: 14px 38px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #a18cd1aa, 0 2px 8px #fff5;
+  cursor: pointer;
+  margin-bottom: 48px;
+  margin-top: 12px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 1.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.aceito-btn:hover {
+  background: linear-gradient(135deg,#5f0a87 0%,#a4508b 100%);
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px #ff7eb355, 0 2px 8px #fff5;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Glow para o canvas após aceito */
+body.aceito .webgl {
+  box-shadow: 0 0 80px 24px #ffb6e6cc, 0 0 120px 48px #a18cd1cc;
+  border-radius: 32px;
+  filter: blur(0.5px) brightness(1.08) drop-shadow(0 0 32px #ffb6e6cc);
+  transition: box-shadow 1s, filter 1s;
 }
